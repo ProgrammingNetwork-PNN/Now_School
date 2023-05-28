@@ -1,9 +1,12 @@
 package com.example.now_school.Board;
 
+import com.example.now_school.Comment.Comment;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,4 +35,8 @@ public class Board {
 
     @Column(name = "userpw")
     private String userpw;
+
+    /*@JsonIgnoreProperties({"board"})
+    @OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
+    private List<Comment> commentList;*/
 }
