@@ -189,29 +189,75 @@ function App() {
         <p>{글내용[0]}</p>
         <span onClick={() => {좋아요0변경(좋아요0+1)}}>🧡</span> {좋아요0} 
         <span onClick={() => {댓글0변경(댓글0+1)}}>💭</span> {댓글0}
-        <p>방금 / 익명</p>
+        <p>5분전 / 익명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Button href="detail0">상세보기</Button></p>
+       
         </div>
-        
+        &nbsp;
+    <div className="list">
+        <h4>{글제목[1]} </h4>
+        <p>{글내용[1]}</p>
+        <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
+        <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
+        <p>3일전 / 익명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Button href="detail1">상세보기</Button></p>
+       
+        </div>
+
+        &nbsp;
+    <div className="list">
+        <h4>{글제목[2]} </h4>
+        <p>{글내용[2]}</p>
+        <span onClick={() => {좋아요2변경(좋아요2+1)}}>🧡</span> {좋아요2} 
+        <span onClick={() => {댓글2변경(댓글2+1)}}>💭</span> {댓글2}
+        <p>05/20 / 익명 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <Button href="detail2">상세보기</Button></p>
+       
+        </div>
+
+        <br/><br/>
+        <Button href="write">게시글 작성</Button>
+
+      </div>} />
+
+      <Route path="/detail0" element={<div>
+        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
+        <div className="list">
+        <h4>{글제목[0]} </h4>
+        <p>{글내용[0]}</p>
+        <span onClick={() => {좋아요0변경(좋아요0+1)}}>🧡</span> {좋아요0} 
+        <span onClick={() => {댓글0변경(댓글0+1)}}>💭</span> {댓글0}
+        <p>5분전 / 익명</p>
+        </div> <br/><br/>
+        <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">뒤로 가기</Button>
+      </div>} />
+
+      <Route path="/detail1" element={<div>
+        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
         <div className="list">
         <h4>{글제목[1]} </h4>
         <p>{글내용[1]}</p>
         <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
         <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
-        <p>방금 / 익명</p>
+        <p>3일전 / 익명</p>
         </div>
+        <br/><br/>
+        <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <Button href="post">뒤로 가기</Button>
+          </div>} />
 
-        <div className="list">
+          <Route path="/detail2" element={<div>
+            <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
+            <div className="list">
         <h4>{글제목[2]} </h4>
         <p>{글내용[2]}</p>
         <span onClick={() => {좋아요2변경(좋아요2+1)}}>🧡</span> {좋아요2} 
         <span onClick={() => {댓글2변경(댓글2+1)}}>💭</span> {댓글2}
-        <p>방금 / 익명</p>
+        <p>05/20 / 익명</p>
         </div>
         <br/><br/>
         <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button href="write">게시글 작성</Button>
+            <Button href="post">뒤로 가기</Button>
+          </div>} />
 
-      </div>} />
       <Route path="/change" element={<div>
        게시글 수정
        
@@ -235,7 +281,7 @@ function App() {
         <p>{글내용[0]}</p>
         <span onClick={() => {좋아요0변경(좋아요0+1)}}>🧡</span> {좋아요0} 
         <span onClick={() => {댓글0변경(댓글0+1)}}>💭</span> {댓글0}
-        <p>방금 / 익명</p>
+        <p>5분전 / 익명</p>
         </div>
 
         </div>} />
