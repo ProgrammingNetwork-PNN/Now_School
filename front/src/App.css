@@ -11,6 +11,11 @@ div {
   box-sizing: border-box;
 }
 
+.postwrite {
+  text-align: center;
+  background-color: rgb(241, 238, 238);
+  height: 500px;
+}
 .list {
   padding-left: 20px;
   text-align: left;

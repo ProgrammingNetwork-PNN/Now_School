@@ -10,10 +10,12 @@ import { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 
+
 function App() {
 
   let[글제목,b] =useState(['와 인제대 폼 미쳤다', '밥 사줄 사람', '민섭아 잘하자']);
   let[글내용,c] =useState(['이번 축제 레전드', '뿡', '제발 수업 좀 와!!']);
+  let [댓글,d]= useState(['ㅇㅈ','나도 사줘','쫌 잘하자' ]);
   let[좋아요0,좋아요0변경] = useState(0);
   let[좋아요1,좋아요1변경] = useState(0);
   let[좋아요2,좋아요2변경] = useState(0);
@@ -37,7 +39,7 @@ function App() {
       <br/><img src={process.env.PUBLIC_URL + '/img/main-img.jpg'}/><br/><br/>
     <Routes>
       <Route path="/home" element={<div> 
-        <p>버튼을 클릭하시면 해당 건물 사용학과를 알려드립니다.</p>
+        <p>하단의 버튼을 클릭하시면 해당 건물을 사용하는 학과를 알려드립니다.</p>
         <img src={process.env.PUBLIC_URL + '/img/campus-map.jpg'}/>
         <br/><br/><br/><br/>
         <Button href="2">2.하연관 (A동)</Button>&nbsp;&nbsp;&nbsp;
@@ -225,8 +227,11 @@ function App() {
         <span onClick={() => {좋아요0변경(좋아요0+1)}}>🧡</span> {좋아요0} 
         <span onClick={() => {댓글0변경(댓글0+1)}}>💭</span> {댓글0}
         <p>5분전 / 익명</p>
-        </div> <br/><br/>
+        </div> <br/>
+        <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[0]}</h6> </div>
+        <br/><br/>
         <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">게시글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
         <Button href="post">뒤로 가기</Button>
       </div>} />
 
@@ -238,9 +243,11 @@ function App() {
         <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
         <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
         <p>3일전 / 익명</p>
-        </div>
+        </div> <br/>
+        <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[1]}</h6> </div>
         <br/><br/>
         <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">게시글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
             <Button href="post">뒤로 가기</Button>
           </div>} />
 
@@ -251,31 +258,41 @@ function App() {
         <p>{글내용[2]}</p>
         <span onClick={() => {좋아요2변경(좋아요2+1)}}>🧡</span> {좋아요2} 
         <span onClick={() => {댓글2변경(댓글2+1)}}>💭</span> {댓글2}
-        <p>05/20 / 익명</p>
-        </div>
+        <p>05/20 / 익명</p> </div><br/>
+        <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[2]}</h6> </div>
+        
         <br/><br/>
         <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">게시글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
             <Button href="post">뒤로 가기</Button>
           </div>} />
 
       <Route path="/change" element={<div>
-       게시글 수정
-       
+        <div className='postwrite'>
+        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
+        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
+        </div><br/><br/><br/><br/><Button href="post">저장</Button> <br/><br/><br/>
+       <Button href="post">뒤로 가기</Button>
+      </div>} />
+      <Route path="/change1" element={<div>
+        <div className='postwrite'>
+        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
+        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
+        </div><br/><br/><br/><br/><Button href="mypage">저장</Button> <br/><br/><br/>
+       <Button href="mypage">뒤로 가기</Button>
       </div>} />
 
       <Route path="/write" element={<div>
-        작성
- 
+       <div className='postwrite'>
+        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
+        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
+        </div><br/><br/><br/><br/><Button href="post">저장</Button> <br/><br/><br/>
+         <Button href="post">뒤로 가기</Button>
       </div>} />
 
       <Route path="/mypage" element={<div>
         <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/>
-
-
         <br/><br/><br/><h1 style={{color:'gray'}}>내가 쓴 글</h1><br/><br/>
-
-        
-
         <div className="list">
         <h4>{글제목[0]} </h4>
         <p>{글내용[0]}</p>
@@ -283,7 +300,22 @@ function App() {
         <span onClick={() => {댓글0변경(댓글0+1)}}>💭</span> {댓글0}
         <p>5분전 / 익명</p>
         </div>
+        <br/><br/>
+        <Button href="change1">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="mypage">게시글 삭제</Button>
 
+       <br/><br/><h3 style={{color:'gray'}}>내가 쓴 댓글</h3><br/><br/>
+        <div className="list">
+        <h4>  {글제목[1]} </h4>
+        <p>{글내용[1]}</p>
+        <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
+        <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
+        <p>5분전 / 익명</p>
+        </div> <br/>
+        <div className="list"><h6 style={{color:'blue'}}> ㄴ 익명 &nbsp; {댓글[1]}</h6> </div>
+        <br/><br/><br/><br/>
+        <Button href="change1">댓글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="mypage">댓글 삭제</Button>
         </div>} />
 
        
