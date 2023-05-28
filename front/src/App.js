@@ -246,8 +246,8 @@ function App() {
         </div> <br/>
         <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[1]}</h6> </div>
         <br/><br/>
-        <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button href="post">게시글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">댓글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="post">댓글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
             <Button href="post">뒤로 가기</Button>
           </div>} />
 
@@ -262,8 +262,6 @@ function App() {
         <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[2]}</h6> </div>
         
         <br/><br/>
-        <Button href="change">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <Button href="post">게시글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
             <Button href="post">뒤로 가기</Button>
           </div>} />
 
