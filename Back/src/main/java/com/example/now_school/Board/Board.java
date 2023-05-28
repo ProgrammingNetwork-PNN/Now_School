@@ -1,14 +1,9 @@
 package com.example.now_school.Board;
 
 import lombok.*;
-import org.hibernate.annotations.Columns;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -17,9 +12,11 @@ import java.util.Date;
 @Builder
 @Entity(name = "board")
 public class Board {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Column(name = "title")
     private String title;
@@ -27,15 +24,12 @@ public class Board {
     @Column(name = "content")
     private String content;
 
-    @Column(name = "writeTime")
-    private LocalDateTime writeTime;
+    @Column(name = "writetime")
+    private LocalDateTime writetime;
 
-    @Column(name = "userId")
-    private String userId;
+    @Column(name = "userid")
+    private String userid;
 
-    @Column(name = "userPw")
-    private String userPw;
-
-    @Column(name = "image")
-    private String image;
+    @Column(name = "userpw")
+    private String userpw;
 }
