@@ -11,7 +11,9 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
+
 function App() {
+
 
   let[글제목,b] =useState(['와 인제대 폼 미쳤다', '밥 사줄 사람', '민섭아 잘하자']);
   let[글내용,c] =useState(['이번 축제 레전드', '뿡', '제발 수업 좀 와!!']);
@@ -35,9 +37,11 @@ function App() {
           </Nav>
         </Container>
       </Navbar>
-
       <br/><img src={process.env.PUBLIC_URL + '/img/main-img.jpg'}/><br/><br/>
-    <Routes>
+       
+      
+     <div className='background'>
+    <Routes> 
       <Route path="/home" element={<div> 
         <p>하단의 버튼을 클릭하시면 해당 건물을 사용하는 학과를 알려드립니다.</p>
         <img src={process.env.PUBLIC_URL + '/img/campus-map.jpg'}/>
@@ -58,10 +62,8 @@ function App() {
         <p style={ {color : 'blue', fontSize : '30px'} }>2.하연관 (A동)</p>
         <img src={process.env.PUBLIC_URL + '/img/2.jpg'}/><br/><br/>
         <ListGroup>
-      <ListGroup.Item>보건안전공학과(407)</ListGroup.Item>
-      <ListGroup.Item>식품영양, 식품공학부(418)</ListGroup.Item>
-      <ListGroup.Item>의공학부(308)	</ListGroup.Item>
-    </ListGroup>
+      <ListGroup.Item>보건안전공학과(407)</ListGroup.Item> <ListGroup.Item>식품영양, 식품공학부(418)</ListGroup.Item> <ListGroup.Item>의공학부(308)	</ListGroup.Item>
+        </ListGroup>
     <br/><br/>
         <Button href="home">뒤로 가기</Button>
         
@@ -186,6 +188,11 @@ function App() {
 
 
       <Route path="/post" element={<div>
+        <br/>
+         <div className='p-searchbar'>
+          <h3 style={{color: 'gray'}}>&nbsp; 검색 </h3>
+        </div> <br/><br/>
+        
         <div className="list">
         <h4>{글제목[0]} </h4>
         <p>{글내용[0]}</p>
@@ -220,7 +227,8 @@ function App() {
       </div>} />
 
       <Route path="/detail0" element={<div>
-        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
+        <div className='myimg'>
+        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/></div><br/><br/>
         <div className="list">
         <h4>{글제목[0]} </h4>
         <p>{글내용[0]}</p>
@@ -236,7 +244,8 @@ function App() {
       </div>} />
 
       <Route path="/detail1" element={<div>
-        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
+        <div className='myimg'>
+        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/></div><br/><br/>
         <div className="list">
         <h4>{글제목[1]} </h4>
         <p>{글내용[1]}</p>
@@ -246,13 +255,14 @@ function App() {
         </div> <br/>
         <div className="list"><h6> ㄴ 익명 &nbsp; {댓글[1]}</h6> </div>
         <br/><br/>
-        <Button href="post">댓글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="change2">댓글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
         <Button href="post">댓글 삭제</Button>&nbsp;&nbsp;&nbsp;&nbsp;
             <Button href="post">뒤로 가기</Button>
           </div>} />
 
           <Route path="/detail2" element={<div>
-            <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/><br/><br/>
+            <div className='myimg'>
+          <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/></div><br/><br/>
             <div className="list">
         <h4>{글제목[2]} </h4>
         <p>{글내용[2]}</p>
@@ -266,30 +276,62 @@ function App() {
           </div>} />
 
       <Route path="/change" element={<div>
-        <div className='postwrite'>
-        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
-        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
+        <div className='postwrite1'>
+        <p style={ { fontSize : '20px'} } > 제목을 작성 하세요. </p></div><br/><br/>
+        <div className='postwrite2'>
+        <p style={ {color : 'grey'} } >글 내용을 작성 하세요. </p>
         </div><br/><br/><br/><br/><Button href="post">저장</Button> <br/><br/><br/>
        <Button href="post">뒤로 가기</Button>
       </div>} />
       <Route path="/change1" element={<div>
-        <div className='postwrite'>
-        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
-        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
-        </div><br/><br/><br/><br/><Button href="mypage">저장</Button> <br/><br/><br/>
+        <div className="list">
+        <h4>  {글제목[1]} </h4>
+        <p>{글내용[1]}</p>
+        <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
+        <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
+        <p>5분전 / 익명</p>
+        </div> <br/>
+        <div className="list">
+        <div className='postwrite3'>
+        <p style={ {color : 'grey', fontSize : '15px'} } ><h6 style={{color:'blue'}}> ㄴ 익명 &nbsp;</h6> 글 내용을 작성 하세요. </p>
+        </div><br/><br/></div><br/><br/><Button href="mypage">저장</Button> <br/><br/><br/>
        <Button href="mypage">뒤로 가기</Button>
       </div>} />
+      <Route path="/change2" element={<div>
+        <div className="list">
+        <h4>  {글제목[1]} </h4>
+        <p>{글내용[1]}</p>
+        <span onClick={() => {좋아요1변경(좋아요1+1)}}>🧡</span> {좋아요1} 
+        <span onClick={() => {댓글1변경(댓글1+1)}}>💭</span> {댓글1}
+        <p>5분전 / 익명</p>
+        </div> <br/>
+        <div className="list">
+        <div className='postwrite3'>
+        <p style={ {color : 'grey', fontSize : '15px'} } ><h6 style={{color:'blue'}}> ㄴ 익명 &nbsp;</h6> 글 내용을 작성 하세요. </p>
+        </div><br/><br/></div><br/><br/><Button href="detail1">저장</Button> <br/><br/><br/>
+       <Button href="detail1">뒤로 가기</Button>
+      </div>} />
+      
 
       <Route path="/write" element={<div>
-       <div className='postwrite'>
-        <p style={ {color : 'grey', fontSize : '30px'} } >글 제목을 작성 하세요. </p><br/><br/><br/><br/>
-        <p style={ {color : 'grey', fontSize : '15px'} } >글 내용을 작성 하세요. </p>
+       <div className='postwrite1'>
+        <p style={ { fontSize : '20px'} } > 제목을 작성 하세요. </p></div><br/><br/>
+        <div className='postwrite2'>
+        <p style={ {color : 'grey'} } >글 내용을 작성 하세요. </p>
         </div><br/><br/><br/><br/><Button href="post">저장</Button> <br/><br/><br/>
          <Button href="post">뒤로 가기</Button>
       </div>} />
-
+      <Route path="/write1" element={<div>
+       <div className='postwrite1'>
+        <p style={ { fontSize : '20px'} } > 제목을 작성 하세요. </p></div><br/><br/>
+        <div className='postwrite2'>
+        <p style={ {color : 'grey'} } >글 내용을 작성 하세요. </p>
+        </div><br/><br/><br/><br/><Button href="post">저장</Button> <br/><br/><br/>
+         <Button href="mypage">뒤로 가기</Button>
+      </div>} />
       <Route path="/mypage" element={<div>
-        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/>
+        <div className='myimg'>
+        <img src={process.env.PUBLIC_URL + '/img/프로필.png'}/></div>
         <br/><br/><br/><h1 style={{color:'gray'}}>내가 쓴 글</h1><br/><br/>
         <div className="list">
         <h4>{글제목[0]} </h4>
@@ -299,7 +341,7 @@ function App() {
         <p>5분전 / 익명</p>
         </div>
         <br/><br/>
-        <Button href="change1">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <Button href="write1">게시글 수정</Button>&nbsp;&nbsp;&nbsp;&nbsp;
         <Button href="mypage">게시글 삭제</Button>
 
        <br/><br/><h3 style={{color:'gray'}}>내가 쓴 댓글</h3><br/><br/>
@@ -320,10 +362,8 @@ function App() {
       
 
     </Routes>
-
-    </div>
+    </div></div>
   );
-  
 }
 
 export default App;
